@@ -21,7 +21,7 @@ class Test_Login_Page(object):
 
     def test_openweb(self):
         ele = self.driver.find_element(*(By.ID, 'copyright'))
-        assert '鼎点视讯科技有限公司' in ele.text
+        assert '科技有限公司' in ele.text
 
     @pytest.mark.smoke
     def test_swich_language(self):
@@ -32,7 +32,7 @@ class Test_Login_Page(object):
             if ele.text == 'English':
                 assert 'Topvision' in ele_text
             else:
-                assert '鼎点视讯科技有限公司' in ele_text
+                assert '科技有限公司' in ele_text
             self.login_web.switch_language()
             sleep(1)
 
