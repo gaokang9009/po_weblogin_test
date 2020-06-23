@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on 2019-12-21
+Created on 2019
 @Author: GaoKang
 Project description：unittest LoginPage
 """
@@ -26,7 +26,7 @@ class TestLoginPage(unittest.TestCase):
     # @unittest.skip
     def test_openweb(self):
         ele = self.driver.find_element(*(By.ID, 'copyright'))
-        self.assertIn('鼎点视讯科技有限公司', ele.text)
+        self.assertIn('科技有限公司', ele.text)
 
     # @unittest.skip
     def test_swich_language(self):
@@ -37,7 +37,7 @@ class TestLoginPage(unittest.TestCase):
             if ele.text == 'English':
                 self.assertIn('Topvision', ele_text)
             else:
-                self.assertIn('鼎点视讯科技有限公司', ele_text)
+                self.assertIn('技有限公司', ele_text)
             self.login_web.switch_language()
             sleep(1)
 
@@ -47,7 +47,7 @@ class TestLoginPage(unittest.TestCase):
         self.login_web.input_password('admin')
         self.login_web.login_submit()
         ele = self.login_web.find_element(*(By.ID, 'topvision_logo'))
-        self.assertIn('images/topvision-logo2.png', ele.get_attribute('src'))
+        self.assertIn('images/logo2.png', ele.get_attribute('src'))
 
     # @unittest.skip
     def test_en_loginweb(self):
@@ -56,7 +56,7 @@ class TestLoginPage(unittest.TestCase):
         self.login_web.input_password('admin')
         self.login_web.login_submit()
         ele = self.login_web.find_element(*(By.ID, 'topvision_logo'))
-        self.assertIn('images/topvision-logo2_en.png', ele.get_attribute('src'))
+        self.assertIn('images/logo2_en.png', ele.get_attribute('src'))
 
     def tearDown(self):
         sleep(3)
