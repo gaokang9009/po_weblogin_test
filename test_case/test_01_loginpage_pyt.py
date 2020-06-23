@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on 2019-12-21
+Created on 2019
 @Author: GaoKang
-Project description：unittest LoginPage
+Project description：pytest LoginPage
 """
 import pytest
 from selenium.webdriver.common.by import By
@@ -30,7 +30,7 @@ class Test_Login_Page(object):
             ele_text = self.driver.find_element(*(By.ID, 'copyright')).text
             # print(ele_text)
             if ele.text == 'English':
-                assert 'Topvision' in ele_text
+                assert 'vision' in ele_text
             else:
                 assert '科技有限公司' in ele_text
             self.login_web.switch_language()
@@ -41,7 +41,7 @@ class Test_Login_Page(object):
         self.login_web.input_password('admin')
         self.login_web.login_submit()
         ele = self.login_web.find_element(*(By.ID, 'topvision_logo'))
-        assert 'images/topvision-logo2.png' in ele.get_attribute('src')
+        assert 'images/logo2.png' in ele.get_attribute('src')
 
     def test_en_loginweb(self):
         self.login_web.switch_language()
@@ -49,7 +49,7 @@ class Test_Login_Page(object):
         self.login_web.input_password('admin')
         self.login_web.login_submit()
         ele = self.login_web.find_element(*(By.ID, 'topvision_logo'))
-        assert 'images/topvision-logo2_en.png' in ele.get_attribute('src'), 'not in'
+        assert 'images/logo2_en.png' in ele.get_attribute('src'), 'not in'
 
     def setup_class(self):
         print("\r\nUnit test end!")
